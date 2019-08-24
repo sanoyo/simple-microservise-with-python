@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: yosano/simple-micro-frontend
+        resources:
+          requests:
+              cpu: 100m
+              memory: 64Mi
+          limits:
+              cpu: 200m
+              memory: 128Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-cluster-ip-service
+spec:
+  selector:
+    app: frontend
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
