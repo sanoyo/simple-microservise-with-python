@@ -105,7 +105,6 @@ def product(slug):
     form = forms.ItemForm(product_id=item['id'])
 
     if request.method == "POST":
-
         if 'user' not in session:
             flash('Please login', 'error')
             return redirect(url_for('frontend.login'))

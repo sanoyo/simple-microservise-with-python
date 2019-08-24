@@ -13,7 +13,6 @@ def swagger_api_docs_yml():
 
 @product_api_blueprint.route('/api/products', methods=['GET'])
 def products():
-
     items = []
     for row in Product.query.all():
         items.append(row.to_json())
