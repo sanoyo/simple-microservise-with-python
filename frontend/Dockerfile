@@ -1,7 +1,5 @@
 FROM python:3.6-alpine3.9
 
-MAINTAINER Peter Fisher
-
 COPY ./app/requirements.txt /app/requirements.txt
 
 WORKDIR /app
@@ -14,4 +12,3 @@ RUN apk add --update \
 COPY ./app /app
 
 CMD python app.py run -h 0.0.0.0
-
