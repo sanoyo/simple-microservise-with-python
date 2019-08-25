@@ -14,13 +14,6 @@ spec:
       containers:
       - name: frontend
         image: yosano/simple-micro-frontend
-        resources:
-          requests:
-              cpu: 100m
-              memory: 64Mi
-          limits:
-              cpu: 200m
-              memory: 128Mi
 
 ---
 
@@ -35,4 +28,4 @@ spec:
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 5000
